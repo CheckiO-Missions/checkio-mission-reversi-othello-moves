@@ -1,0 +1,41 @@
+<!-- Describe task in general -->
+
+<p style="text-align: center;">
+    <a target="_blank" href="https://gigazine.net/gsc_news/en/20191001-othelo-robot/"><img src="{{MEDIA}}00.png" title="Тисни, щоб прочитати цікаву статтю!" alt="example" style="max-height: 300px"/></a>
+</p>
+<p style="text-align: justify">
+    <a target="_blank" href="https://en.wikipedia.org/wiki/Reversi">Реверсі</a> - це стратегічна настільна гра для двох гравців, що грається на дошці 8 × 8. Вона була винайдена у 1883 році. Отелло, варіант з фіксованою початковою комбінацією на дошці, був запатентований у 1971 році.  
+</p>
+<p style="text-align: justify">
+    Для цілей цієї місії тобі потрібно написати генератор ходів, щоб знайти всі, доступні для Отелло проти Дездемони на даній дошці. Ігрові фішки Отелло (⚫) та Дездемони (⚪) на дошці - {% if is_js %}масиви{% else %}списки{% endif %} кортежів їх <b class="code">x</b>- та <b class="code">y</b>-координат, обидві координати від 0 до 7. 
+</p>
+<p style="text-align: justify">
+    Твоя функція повинна повертати {% if is_js %}масив{% else %}список{% endif %} усіх можливих ходів, доступних Отелло. Ці ходи мають бути представлені у вигляді кортежів <b class="code">(x, y, flips)</b> де <b class="code">x, y</b> - координати ходу, за якими слідує кількість фішок Дездемони, які цей конкретний хід обертає на фішки Отелло. 
+</p>
+<p style="text-align: justify">
+    Щоб зробити очікувану правильну відповідь унікальною, результатний {% if is_js %}масив{% else %}список{% endif %} ходів повинен бути відсортований за спаданням кількості обернутих фішок за хід (<b class="code">flips</b>). Ходи, що обертають однакову кількість фішок, повинні бути відсортовані за зростанням їх <b class="code">x</b>-координати, остаточний порядок встановлюється за зростанням <b class="code">y</b>-координати.
+</p>
+<!-- Explain input and output values -->
+<p>
+    <strong>Вхідні дані:</strong> Два {% if is_js %}масиви{% else %}списки{% endif %} кортежів з двох цілих чисел.
+</p>
+<p>
+    <strong>Вихідні дані:</strong> {% if is_js %}Масив{% else %}Список{% endif %} кортежів з трьох цілих чисел. 
+</p>
+<p>
+    <strong>Приклади:</strong>
+</p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+    <strong>Сфера застосування:</strong>
+    <i>
+        Незважаючи на те, що Реверсі випав з моди в останні роки, але вона все ще має достатню складність, щоб служити вправою на ігрові алгоритми та їх евристику в галузі штучного інтелекту.
+    </i>
+</p>
+<p>
+    <i>
+        Ця місія взята з курсу CCPS 109 Computer Science I, версія від 21 грудня 2022 року, авторства <a target="_blank" href="https://github.com/ikokkari">Ilkka Kokkarinen</a>.
+    </i>
+</p>

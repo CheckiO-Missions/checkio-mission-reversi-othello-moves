@@ -1,41 +1,41 @@
 <!-- Describe task in general -->
 
-<p>
-    Reversi is a strategy board game for two players, played on an 8×8 uncheckered board. It was invented in 1883. Othello, a variant with a fixed initial setup of the board, was patented in 1971.  
+<p style="text-align: center;">
+    <a target="_blank" href="https://gigazine.net/gsc_news/en/20191001-othelo-robot/"><img src="{{MEDIA}}00.png" title="Click to read an interesting article!" alt="example" style="max-height: 300px"/></a>
 </p>
-<p>
-
+<p style="text-align: justify">
+    <a target="_blank" href="https://en.wikipedia.org/wiki/Reversi">Reversi</a> is a strategy board game for two players, played on an 8×8 uncheckered board. It was invented in 1883. Othello, a variant with a fixed initial setup of the board, was patented in 1971.  
 </p>
-
+<p style="text-align: justify">
+    For the purposes of this mission you need to write a move generator to find all moves available for Othello against Desdemona on the given board. The game pieces of Othello (⚫) and Desdemona (⚪) on the board are {% if is_js %}arrays{% else %}lists{% endif %} of tuples of their <b class="code">x</b>- and <b class="code">y</b>-coordinates, both ranging from 0 to 7. 
+</p>
+<p style="text-align: justify">
+    This function should return {% if is_js %}an array{% else %}a list{% endif %} of all possible moves available to Othello. The returned moves must be encoded as tuples <b class="code">(x, y, flips)</b> where <b class="code">x, y</b> are the coordinates of the move, followed by the count of how many of Desdemona’s pieces that particular move would flip into Othello’s pieces. 
+</p>
+<p style="text-align: justify">
+    To make the expected correct answer unique, the returned {% if is_js %}array{% else %}list{% endif %} of moves must be sorted in descending order of flips. Moves that flip the same number of pieces should be listed in ascending order of their <b class="code">x</b>-coordinates, breaking the ties with the <b class="code">y</b>-coordinate also in ascending order.
+</p>
 <!-- Explain input and output values -->
 <p>
-    <strong>Input:</strong> Two arguments. Both are ints.
+    <strong>Input:</strong> Two {% if is_js %}arrays of tuples of 2 numbers{% else %}lists of tuples of 2 integers{% endif %}.
 </p>
-
 <p>
-    <strong>Output:</strong> Int. 
+    <strong>Output:</strong> {% if is_js %}Array of tuples of 3 numbers{% else %}List of tuples of 3 integers{% endif %}. 
 </p>
-
-
 <p>
     <strong>Examples:</strong>
 </p>
-
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
-
 <!-- Here you can explain how it can be used in development -->
 <!-- The section is optional -->
 <p class="for_info_only">
-
     <strong>How it’s used:</strong>
-    <i> Although Reversi has fallen	out	of fashion in recent years, but	it still has enough complexity to serve as an exercise of game playing algorithms.</i>
+    <i>
+        Although Reversi has fallen out of fashion in recent years, but it still has enough complexity to serve as an exercise of game playing algorithms and their heuristics in the field of artificial intelligence.
+    </i>
 </p>
-
-<!-- Here you can explain some constraints for input-->
-<!-- The section is optional -->
 <p>
-    <strong>Preconditions:</strong>
-    <ul>
-    <li><i>both given ints should be between -1000 and 1000</i></li>
-    </ul>
+    <i>
+        This task is taken from the course CCPS 109 Computer Science I, Version of December 21, 2022, as taught by <a target="_blank" href="https://github.com/ikokkari">Ilkka Kokkarinen</a>.
+    </i>
 </p>
