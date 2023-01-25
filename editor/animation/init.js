@@ -67,7 +67,7 @@ requirejs(['ext_editor_io2', 'jquery_190', 'raphael_210'],
              *----------------------------------------------*/
             for (let i=1; i <= 9; i += 1) {
                 paper.path(['M', unit*i+os, os, 'v', grid_size_px]).attr(attr.grid)
-                paper.path(['M', os, unit*i+os, 'h', grid_size_px]).attr(attr.grid)
+                paper.path(['M', os, unit*(i-1)+os, 'h', grid_size_px]).attr(attr.grid)
             }
 
             /*----------------------------------------------*
@@ -75,7 +75,7 @@ requirejs(['ext_editor_io2', 'jquery_190', 'raphael_210'],
              * draw outside frame
              *
              *----------------------------------------------*/
-            paper.rect(unit+os, unit+os, unit*8, unit*8).attr(attr.frame)
+            paper.rect(unit+os, os, unit*8, unit*8).attr(attr.frame)
 
             /*----------------------------------------------*
              *
@@ -83,8 +83,8 @@ requirejs(['ext_editor_io2', 'jquery_190', 'raphael_210'],
              *
              *----------------------------------------------*/
             for (let i=0; i < 8; i += 1) {
-                paper.text((i+1)*unit+unit/2+os, unit/2 + os, i).attr(attr.number)
-                paper.text(unit/2 + os, (i+1)*unit+unit/2+os, i).attr(attr.number)
+                paper.text((i+1)*unit+unit/2+os, unit*8.5 + os, i).attr(attr.number)
+                paper.text(unit/2 + os, (7-i)*unit+unit/2+os, i).attr(attr.number)
             }
 
             /*----------------------------------------------*
@@ -96,12 +96,12 @@ requirejs(['ext_editor_io2', 'jquery_190', 'raphael_210'],
             // black pieces
             input[0].forEach(inp=>{
                 const [x, y] = inp.values
-                paper.circle((x+1)*unit+unit/2+os, (y+1)*unit+unit/2+os, r).attr(attr.pieces.black)
+                paper.circle((x+1)*unit+unit/2+os, (7-y)*unit+unit/2+os, r).attr(attr.pieces.black)
             })
             // white pieces
             input[1].forEach(inp=>{
                 const [x, y] = inp.values
-                paper.circle((x+1)*unit+unit/2+os, (y+1)*unit+unit/2+os, r).attr(attr.pieces.white)
+                paper.circle((x+1)*unit+unit/2+os, (7-y)*unit+unit/2+os, r).attr(attr.pieces.white)
             })
             // answer pieces
             if (Array.isArray(output)) {
@@ -113,8 +113,8 @@ requirejs(['ext_editor_io2', 'jquery_190', 'raphael_210'],
                             Number.isInteger(op_v[1]) &&
                             Number.isInteger(op_v[2])) {
                         const [x, y, f] = op_v
-                        paper.circle((x+1)*unit+unit/2+os, (y+1)*unit+unit/2+os, r).attr(attr.pieces.answer)
-                        paper.text((x+1)*unit+unit/2+os, (y+1)*unit+unit/2+os, f).attr(attr.number)
+                        paper.circle((x+1)*unit+unit/2+os, (7-y)*unit+unit/2+os, r).attr(attr.pieces.answer)
+                        paper.text((x+1)*unit+unit/2+os, (7-y)*unit+unit/2+os, f).attr(attr.number)
                     }
                 })
             }
